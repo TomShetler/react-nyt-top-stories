@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+const request = require('request');
+
 import SearchBar from './components/SearchBar';
 
 class App extends Component {
