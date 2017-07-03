@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-const request = require('request');
+const NYTSearch = require('./dist/news.js');
 
 import SearchBar from './components/SearchBar';
 
