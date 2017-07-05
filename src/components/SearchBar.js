@@ -8,10 +8,10 @@ export default class SearchBar extends Component {
     };
   }
 
-  onInputChange(term) {
-    this.setState({term});
-    console.log(this.state.term);
-  }
+  // onInputChange(term) {
+  //   this.setState({term});
+  //   console.log(this.state.term);
+  // }
 
   render() {
     return (
