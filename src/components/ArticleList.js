@@ -5,8 +5,9 @@ const ArticleList = (props) => {
   const articleItems = props.articles.map((article) => {
     return (
       <ArticleListItem
-        key={article.short_url}
-        article={article} />
+        onArticleSelect={props.onArticleSelect}
+        key={article.url}
+        article={article}/>
     );
   });
 

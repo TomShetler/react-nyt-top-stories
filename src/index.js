@@ -17,11 +17,11 @@ class App extends Component {
       articles: [],
       featuredArticle: null
     };
-    this.articleSearch();
+    this.articleSearch('home');
   }
 
-  articleSearch() {
-    axios.get('https://api.nytimes.com/svc/topstories/v2/home.json', {
+  articleSearch(term) {
+    axios.get(`https://api.nytimes.com/svc/topstories/v2/${term}.json`, {
       params: {
         'api-key': API_KEY
       }
@@ -31,7 +31,6 @@ class App extends Component {
           articles: res.data.results,
           featuredArticle: res.data.results[0]
         });
-        console.log(this.state.featuredArticle);
         })
         .catch((e) => {
           console.log(e);
@@ -39,11 +38,15 @@ class App extends Component {
   }
 
   render() {
+    const articleSearch = _.debounce((term) => { this.articleSearch(term) }, 300);
+
     return (
       <div>
-        <SearchBar/>
+        <SearchBar onSearchTermChange={articleSearch}/>
         <ArticleDetails article={this.state.featuredArticle}/>
-        {/* <ArticleList articles={this.state.articles}/> */}
+        <ArticleList
+          onArticleSelect={featuredArticle => this.setState({featuredArticle})}
+          articles={this.state.articles}/>
       </div>
     );
   }
