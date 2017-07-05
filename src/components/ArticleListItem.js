@@ -5,7 +5,7 @@ const ArticleListItem = ({article, onArticleSelect}) => {
     <li onClick={() => onArticleSelect(article)} className="list-group-item">
       <div className="article-list media">
         <div className="media-left">
-          {/* <img className="media-object" src={article.multimedia[0].url}/> */}
+          {/* <img className="media-object" src={article.multimedia[1].url}/> */}
         </div>
         <div className="media-body">
           <div className="media-heading">{article.title}</div>

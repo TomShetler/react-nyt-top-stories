@@ -31,6 +31,7 @@ class App extends Component {
           articles: res.data.results,
           featuredArticle: res.data.results[0]
         });
+        console.log(this.state.featuredArticle);
         })
         .catch((e) => {
           console.log(e);
